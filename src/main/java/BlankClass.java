@@ -1,3 +1,5 @@
+//This is just a template file for a correlator
+
 import com.bluesmoke.farm.correlator.CorrelatorPool;
 import com.bluesmoke.farm.correlator.GenericCorrelator;
 import com.bluesmoke.farm.correlator.builder.CorrelatorBuilderManager;
