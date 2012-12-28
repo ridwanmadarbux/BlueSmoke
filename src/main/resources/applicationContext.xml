@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="feed" class="com.bluesmoke.farm.service.feed.CSVFeed"></bean>
+    <bean id="correlatorPool" class="com.bluesmoke.farm.correlator.CorrelatorPool">
+        <constructor-arg ref="feed"/>
+    </bean>
+    <bean id="correlatorBuilderManager" class="com.bluesmoke.farm.correlator.builder.CorrelatorBuilderManager">
+        <constructor-arg ref="correlatorPool"/>
+        <constructor-arg ref="feed"/>
+    </bean>
+    <bean id="classPath" class="java.lang.String">
+        <!--<constructor-arg><value>/app/glassfish3/glassfish/domains/dev/applications/farm-0.0.1-SNAPSHOT/WEB-INF/classes</value></constructor-arg>-->
+        <constructor-arg><value>C:\Dev\Source\BlueSmoke\target\farm-0.0.1-SNAPSHOT\WEB-INF\classes</value></constructor-arg>
+    </bean>
+    <bean id="emulator" class="com.bluesmoke.farm.worker.PassageOfTimeEmulationWorker">
+        <constructor-arg ref="feed"/>
+        <constructor-arg ref="correlatorPool"/>
+    </bean>
+</beans>
