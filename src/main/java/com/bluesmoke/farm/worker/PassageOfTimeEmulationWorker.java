@@ -53,7 +53,7 @@ public class PassageOfTimeEmulationWorker implements Runnable
                         System.gc();
                     }
                 }
-                else if(Math.random() > 0.99)
+                else if(Math.random() > 0.999)
                 {
                     pool.causeMutationWave();
                     pool.causeBreedingWave();
